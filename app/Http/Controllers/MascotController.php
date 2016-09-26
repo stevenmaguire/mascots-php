@@ -79,6 +79,6 @@ class MascotController extends Controller
     {
         $mascot = Mascot::findOrFail($id);
 
-        return $mascot->delete();
+        return ['success' => $mascot->delete()];
     }
 }
