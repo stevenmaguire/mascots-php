@@ -46,7 +46,10 @@ class SearchController extends Controller
         $attributes = $request->only(['name', 'domain', 'image_url', 'description']);
         $attributes['suggested_at'] = Carbon::now();
         $attributes['suggested_by_ip'] = $request->ip();
-        $mascot = Mascot::create($attributes);
+
+        Mascot::withoutSyncingToSearch(function () use ($attributes) {
+            Mascot::create($attributes);
+        });
 
         return redirect()->route('submit')->with('status', 'Mascot submitted!');
     }
