@@ -41,7 +41,7 @@ class MascotController extends Controller
     {
         $this->validate($request, Mascot::$creationValidationRules);
 
-        $attributes = $request->only(['name', 'domain', 'image_url', 'description']);
+        $attributes = $request->only(['name', 'domain', 'image_url', 'description', 'popularity']);
 
         return Mascot::create($attributes);
     }

@@ -38,7 +38,7 @@ class SearchController extends Controller
     {
         $this->validate($request, Mascot::$creationValidationRules);
 
-        $attributes = $request->only(['name', 'domain', 'image_url', 'description']);
+        $attributes = $request->only(['name', 'domain', 'image_url', 'description', 'popularity']);
         $attributes['suggested_at'] = Carbon::now();
         $attributes['suggested_by_ip'] = $request->ip();
 
