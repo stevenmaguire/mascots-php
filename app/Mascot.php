@@ -12,6 +12,18 @@ class Mascot extends Model
     use Searchable;
 
     /**
+     * The validation rules for Mascot creation.
+     *
+     * @var array
+     */
+    public static $creationValidationRules = [
+        'name' => 'required|unique:mascots|max:255',
+        'domain' => 'required',
+        'image_url' => 'required',
+        'description' => 'required|max:3000'
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

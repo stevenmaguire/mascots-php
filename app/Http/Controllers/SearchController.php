@@ -36,12 +36,7 @@ class SearchController extends Controller
 
     public function handleSubmit(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:mascots|max:255',
-            'domain' => 'required',
-            'image_url' => 'required',
-            'description' => 'required|max:3000'
-        ]);
+        $this->validate($request, Mascot::$creationValidationRules);
 
         $attributes = $request->only(['name', 'domain', 'image_url', 'description']);
         $attributes['suggested_at'] = Carbon::now();

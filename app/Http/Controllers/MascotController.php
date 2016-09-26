@@ -39,7 +39,11 @@ class MascotController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, Mascot::$creationValidationRules);
+
+        $attributes = $request->only(['name', 'domain', 'image_url', 'description']);
+
+        return Mascot::create($attributes);
     }
 
     /**
@@ -73,6 +77,8 @@ class MascotController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mascot = Mascot::findOrFail($id);
+
+        return $mascot->delete();
     }
 }
