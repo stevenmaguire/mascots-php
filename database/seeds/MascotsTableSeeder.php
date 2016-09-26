@@ -32,5 +32,25 @@ class MascotsTableSeeder extends Seeder
             'created_at' => $now,
             'updated_at' => $now
         ]);
+
+        DB::table('mascots')->insert([
+            'name' => 'Willie the Wildcat',
+            'image_url' => 'https://s3.amazonaws.com/mascots.stevil.co/willie-the-wildcat.jpg',
+            'domain' => 'college.basketball',
+            'description' => 'He\'s a wild cat!',
+            'popularity' => 5,
+            'created_at' => $now,
+            'updated_at' => $now
+        ]);
+
+        DB::table('mascots')->insert([
+            'name' => 'Dig\'em Frog',
+            'image_url' => 'https://s3.amazonaws.com/mascots.stevil.co/dig-em-frog.jpg',
+            'domain' => 'cereal',
+            'description' => 'He\'s a frog!',
+            'popularity' => 7,
+            'created_at' => $now,
+            'updated_at' => $now
+        ]);
     }
 }

@@ -26,12 +26,9 @@ class MascotController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Mascot::search($request->keyword);
-        if ($request->has('popularity')) {
-            $query->where('popularity', $request->popularity);
-        }
+        $filters = $request->only(['keyword', 'popularity']);
 
-        return $query->paginate();
+        return Mascot::searchWith($filters)->paginate();
     }
 
     /**
