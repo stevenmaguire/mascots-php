@@ -29,7 +29,7 @@ class Mascot extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'domain', 'image_url', 'description',
+        'name', 'domain', 'image_url', 'description', 'popularity',
         'suggested_at', 'suggested_by_ip'
     ];
 
